@@ -1,0 +1,59 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f3f6fb;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #1a1a1a;
+}
+
+.navbar-brand,
+.nav-link {
+    color: white !important;
+}
+
+.search-bar {
+    width: 300px;
+}
+
+.hero {
+    background-color: #5a2fd3;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-bottom: 30px;
+}
+
+.hero button {
+    background-color: #ffd700;
+    color: black;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+.featured-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ffb703;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.quiz-card {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.quiz-btn {
+    background-color: #ffc107;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-weight: bold;
+    color: #000;
+}

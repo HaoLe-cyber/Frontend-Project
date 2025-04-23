@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang đăng ký</title>
+    <link rel="stylesheet" href="signup.css" />
+</head>
+
+<body>
+    <div class="header">
+        Trang đăng ký
+    </div>
+    <div class="des-container">
+        <h1>Đăng ký</h1>
+        <p class="description">QuizForge – Nền tảng sáng tạo bài kiểm tra trực tuyến, giúp bạn dễ dàng thiết kế, chia sẻ
+            và thực hiện các bài kiểm tra một cách nhanh chóng và hiệu quả!</p>
+    </div>
+    <div class="container">
+        <form class="form-box" onsubmit="registerUser(event)">
+            <input id="register-username" type="text" placeholder="Họ và tên" required>
+            <input id="register-email" type="email" placeholder="Địa chỉ email" required>
+            <input id="register-password" type="password" placeholder="Mật khẩu" required>
+            <input id="register-confirm-password" type="password" placeholder="Xác nhận mật khẩu" required>
+            <button type="submit">Đăng ký</button>
+        </form>
+        <p class="redirect">Đã có tài khoản? <a href="../Login/login.html">Đăng nhập</a></p>
+    </div>
+</body>
+<script src="signup.js"></script>
+
+</html>
