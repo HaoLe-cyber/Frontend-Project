@@ -8,15 +8,16 @@ function loginUser(e) {
     const user = users.find(user => user.email === email && user.password === password);
 
     if (user) {
-        window.location.href = "home.html";
+        localStorage.setItem("loggedInUser", email);
     } else {
         alert("Email hoặc mật khẩu không đúng!");
     }
+    window.location.href = "../category-manage/category.html";
 }
 
 window.onload = function () {
-    const loggedUser = localStorage.getItem("loggedInUser") || sessionStorage.getItem("loggedInUser");
+    const loggedUser = localStorage.getItem("loggedInUser");
     if (loggedUser) {
-        window.location.href = "../Home/home.html";
+        window.location.href = "../category-manage/category.html";
     }
 }
