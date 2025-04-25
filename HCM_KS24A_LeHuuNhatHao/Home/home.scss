@@ -1,5 +1,5 @@
 body {
-    font-family: 'Segoe UI', sans-serif;
+    font-family: "Segoe UI", sans-serif;
     background-color: #f3f6fb;
 }
 
@@ -11,7 +11,7 @@ body {
 
 .navbar-brand,
 .nav-link {
-    color: white !important;
+    color: #fff !important;
 }
 
 .search-bar {
@@ -20,15 +20,15 @@ body {
 
 .hero {
     background-color: #5a2fd3;
-    color: white;
+    color: #fff;
     text-align: center;
     padding: 40px 20px;
     margin-bottom: 30px;
 }
 
 .hero button {
-    background-color: #ffd700;
-    color: black;
+    background-color: gold;
+    color: #000;
     font-weight: bold;
     border: none;
     padding: 10px 20px;
@@ -47,6 +47,8 @@ body {
 .quiz-card {
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    background-color: white;
 }
 
 .quiz-btn {

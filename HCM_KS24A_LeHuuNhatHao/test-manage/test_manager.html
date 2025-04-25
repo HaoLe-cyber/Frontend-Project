@@ -13,7 +13,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">QuizzForge</a>
+            <a class="navbar-brand" href="../Home/home.html">QuizForge</a>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="../category-manage/category.html">Danh mục</a></li>
                 <li class="nav-item"><a class="nav-link" href="../test-manage/test_manager.html">Bài test</a></li>
@@ -26,7 +26,18 @@
     <!-- Main content -->
     <div class="container">
         <h4>Quản lý bài test</h4>
-        <button class="btn btn-primary mb-3">Thêm bài test</button>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <button class="btn btn-primary">Thêm bài test</button>
+
+            <div class="d-flex gap-2">
+                <select id="sortOptions" class="form-select">
+                    <option value="">Sắp xếp theo</option>
+                    <option value="name">Tên</option>
+                    <option value="time">Thời gian</option>
+                </select>
+                <input type="text" id="searchInput" class="form-control" placeholder="Tìm kiếm theo tên">
+            </div>
+        </div>
 
         <table class="table table-bordered table-striped">
             <thead>
@@ -89,7 +100,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
                 </div>
                 <div class="modal-body">
-                    Bạn có chắc muốn xoá danh mục này không?
+                    Bạn có chắc muốn xoá bài test này không?
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="confirmDeleteBtn" class="btn btn-danger">Xoá</button>

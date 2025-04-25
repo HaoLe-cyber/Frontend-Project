@@ -1,5 +1,8 @@
 let tests = [];
 
+let currentSearchTerm = "";
+let currentSortOption = "";
+
 // LocalStorage init
 if (!localStorage.getItem("tests")) {
     localStorage.setItem("tests", JSON.stringify(tests));
@@ -65,9 +68,23 @@ function renderPagin() {
     `;
 }
 
+// Hàm render danh sách bài test có kết hợp tìm kiếm và sắp xếp
 function renderData() {
-    let ulHTML = ``;
-    let data = tests.slice((curPage - 1) * maxItem, curPage * maxItem);
+    let filteredTests = tests.filter(test =>
+        test.name.toLowerCase().includes(currentSearchTerm.toLowerCase())
+    );
+
+    if (currentSortOption === "name") {
+        filteredTests.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (currentSortOption === "time") {
+        filteredTests.sort((a, b) => a.time.localeCompare(b.time));
+    }
+
+    const countPage = Math.ceil(filteredTests.length / maxItem);
+    curPage = Math.min(curPage, countPage || 1);
+
+    let data = filteredTests.slice((curPage - 1) * maxItem, curPage * maxItem);
+    let ulHTML = "";
 
     for (let i = 0; i < data.length; i++) {
         ulHTML += `
@@ -78,14 +95,16 @@ function renderData() {
             <td>${data[i].length}</td>
             <td>${data[i].time}</td>
             <td>
-                <button class="btn-edit" onclick="editTest(${i}, '${data[i].name}') ">Sửa</button>
-            <button class="btn-delete" onclick = "deleteTest(${i})" > Xoá</button>
-            </td >
-        </tr > `;
+                <button class="btn-edit" onclick="editTest(${tests.findIndex(t => t.id === data[i].id)}, '${data[i].name}')">Sửa</button>
+                <button class="btn-delete" onclick="deleteTest(${tests.findIndex(t => t.id === data[i].id)})">Xoá</button>
+            </td>
+        </tr>`;
     }
 
     ulEL.innerHTML = ulHTML;
+    renderPagin();
 }
+
 
 let testModal = new bootstrap.Modal(document.querySelector('#testModal'));
 let deleteModal = new bootstrap.Modal(document.querySelector('#confirmDeleteModal'));
@@ -136,7 +155,7 @@ document.addEventListener("click", function (e) {
     }
 });
 
-// Xác  nhận xoá
+// Xác nhận xoá
 let deleteIndex = null;
 
 document.addEventListener("click", function (e) {
@@ -156,10 +175,24 @@ document.querySelector("#confirmDeleteBtn").addEventListener("click", () => {
     }
 });
 
+// Hàm đăng xuất
 function logOutUser() {
     localStorage.removeItem("loggedInUser");
     window.location.href = "../Login/login.html";
 }
+
+// Nhận sự kiện tìm kiếm
+document.querySelector("#searchInput").addEventListener("input", function (e) {
+    currentSearchTerm = e.target.value;
+    curPage = 1; // reset về trang đầu khi tìm kiếm
+    renderData();
+});
+
+// Nhận sự kiện chọn sắp xếp
+document.querySelector("#sortOptions").addEventListener("change", function (e) {
+    currentSortOption = e.target.value;
+    renderData();
+});
 
 
 renderData();
