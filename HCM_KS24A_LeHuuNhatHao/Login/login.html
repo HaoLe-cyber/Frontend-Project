@@ -20,9 +20,10 @@
     <div class="container">
         <form class="form-box" onsubmit="loginUser(event)">
             <label for="login-email">Email</label>
-            <input id="login-email" type="email" placeholder="Địa chỉ email" required>
+            <input type="email" id="login-email" placeholder="Email">
             <label for="">Password</label>
-            <input id="login-password" type="password" placeholder="Mật khẩu" required>
+            <input type="password" id="login-password" placeholder="Mật khẩu">
+            <span id="login-error" style="color: red;"></span>
             <button type="submit">Đăng nhập</button>
         </form>
         <p class="redirect">Chưa có tài khoản? <a href="../Signup/signup.html">Đăng ký</a></p>

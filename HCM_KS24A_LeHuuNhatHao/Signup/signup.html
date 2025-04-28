@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8" />
@@ -19,10 +19,14 @@
     </div>
     <div class="container">
         <form class="form-box" onsubmit="registerUser(event)">
-            <input id="register-username" type="text" placeholder="Họ và tên" required>
-            <input id="register-email" type="email" placeholder="Địa chỉ email" required>
-            <input id="register-password" type="password" placeholder="Mật khẩu" required>
-            <input id="register-confirm-password" type="password" placeholder="Xác nhận mật khẩu" required>
+            <input type="text" id="register-username" placeholder="Họ và tên">
+            <span id="username-error" style="color: red;"></span>
+            <input type="email" id="register-email" placeholder="Email">
+            <span id="email-error" style="color: red;"></span>
+            <input type="password" id="register-password" placeholder="Mật khẩu">
+            <span id="password-error" style="color: red;"></span>
+            <input type="password" id="register-confirm-password" placeholder="Xác nhận mật khẩu">
+            <span id="confirm-password-error" style="color: red;"></span>
             <button type="submit">Đăng ký</button>
         </form>
         <p class="redirect">Đã có tài khoản? <a href="../Login/login.html">Đăng nhập</a></p>

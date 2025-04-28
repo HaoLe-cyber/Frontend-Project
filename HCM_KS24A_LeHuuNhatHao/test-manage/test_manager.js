@@ -92,8 +92,8 @@ function renderData() {
             <td>${data[i].id}</td>
             <td>${data[i].name}</td>
             <td>${data[i].category}</td>
-            <td>${data[i].length}</td>
-            <td>${data[i].time}</td>
+            <td>${data[i].questions.length}</td>
+            <td>${data[i].time} phút</td>
             <td>
                 <button class="btn-edit" onclick="editTest(${tests.findIndex(t => t.id === data[i].id)}, '${data[i].name}')">Sửa</button>
                 <button class="btn-delete" onclick="deleteTest(${tests.findIndex(t => t.id === data[i].id)})">Xoá</button>
@@ -142,19 +142,26 @@ document.querySelector("#testForm").addEventListener("submit", function (e) {
 });
 
 // Mở modal sửa
+// document.addEventListener("click", function (e) {
+//     if (e.target.classList.contains("btn-edit")) {
+//         const row = e.target.closest("tr");
+//         const id = parseInt(row.children[0].textContent);
+//         const index = tests.findIndex(cat => cat.id === id);
+
+//         document.querySelector("#editIndex").value = index;
+//         document.querySelector("#testName").value = tests[index].name;
+//         document.querySelector("#testModalLabel").innerText = "Sửa bài test";
+//         testModal.show();
+//     }
+// });
+
+// Hàm sự kiện chuyển trang khi click nút sửa
 document.addEventListener("click", function (e) {
     if (e.target.classList.contains("btn-edit")) {
-        const row = e.target.closest("tr");
-        const id = parseInt(row.children[0].textContent);
-        const index = tests.findIndex(cat => cat.id === id);
-
-        document.querySelector("#editIndex").value = index;
-        document.querySelector("#testName").value = tests[index].name;
-        document.querySelector("#testModalLabel").innerText = "Sửa bài test";
-        testModal.show();
+        window.location.href = `../test-create/test_create.html`;
+        alert("Em không làm chức năng này ạ, nên em chỉ chuyển đến trang test-create cho các thầy test thôi ạ!");
     }
 });
-
 // Xác nhận xoá
 let deleteIndex = null;
 

@@ -75,8 +75,8 @@ function renderData() {
                     <img src="./8160b25e90a83127a613c90527e7cea2365c88ea.png" class="rounded me-3" alt="quiz img">
                     <div class="flex-grow-1">
                         <div class="text-muted mb-1">${data[i].name}</div>
-                        <div class="fw-bold">Thời gian: 15 phut</div>
-                        <div class="text-muted">10 lượt chơi</div>
+                        <div class="fw-bold">Thời gian: ${data[i].time} phút</div>
+                        <div class="text-muted">${data[i].plays} lượt chơi</div>
                     </div>
                     <div class="align-self-center">
                         <button class="quiz-btn" data-id="${i}">Chơi</button>
