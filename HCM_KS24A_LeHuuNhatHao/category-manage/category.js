@@ -1,4 +1,17 @@
-let categories = [];
+// category.js hoàn chỉnh (fix lỗi error message + validate tên danh mục)
+
+let categories = [
+    {
+        id: 1,
+        name: "Tiếng anh",
+        emoji: "📚",
+    },
+    {
+        id: 2,
+        name: "Sinh học",
+        emoji: "🧬",
+    }
+];
 
 if (!localStorage.getItem("categories")) {
     localStorage.setItem("categories", JSON.stringify(categories));
@@ -36,7 +49,6 @@ function editCategory(index, name, emoji) {
     renderData();
 }
 
-// Phân trang
 const urlParams = new URLSearchParams(window.location.search);
 const targetPage = parseInt(urlParams.get('page')) || 1;
 
@@ -63,7 +75,6 @@ function renderPagin() {
     `;
 }
 
-// Hàm render danh mục
 function renderData() {
     let ulHTML = ``;
     let data = categories.slice((curPage - 1) * maxItem, curPage * maxItem);
@@ -86,40 +97,57 @@ function renderData() {
 let categoryModal = new bootstrap.Modal(document.querySelector('#categoryModal'));
 let deleteModal = new bootstrap.Modal(document.querySelector('#confirmDeleteModal'));
 
-// Mở modal thêm
-document.querySelector(".btn-primary").addEventListener("click", () => {
-    document.querySelector("#categoryModalLabel").innerText = "Thêm danh mục";
-    document.querySelector("#editIndex").value = "";
-    document.querySelector("#categoryName").value = "";
-    document.querySelector("#categoryEmoji").value = "";
-    categoryModal.show();
-});
+// Validate form
+const categoryNameInput = document.querySelector("#categoryName");
+const categoryError = document.querySelector(".error-message");
+const categoryErrorMsg = document.querySelector("#category-name-error");
+const saveButton = document.querySelector("#categoryForm button[type='submit']");
 
-// Thêm hoặc cập nhật danh mục
-document.querySelector("#categoryForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const name = document.querySelector("#categoryName").value.trim();
-    const emoji = document.querySelector("#categoryEmoji").value.trim();
+function validateCategoryName() {
+    const name = categoryNameInput.value.trim();
     const index = document.querySelector("#editIndex").value;
+    let errorMessage = "";
 
-    if (name === "") {
-        alert("Tên danh mục không được để trống!");
-        return;
-    } else if (categories.some((cat, idx) => cat.name.toLowerCase() === name.toLowerCase() && idx != index)) {
-        alert("Tên danh mục đã tồn tại!");
-        return;
-    } else if (emoji === "") {
-        alert("Emoji không được để trống!");
-        return;
-    }
-
-    if (index === "") {
-        addCategory(name, emoji);
+    if (name.length === 0) {
+        errorMessage = "Tên danh mục không được để trống.";
+    } else if (name.length < 6) {
+        errorMessage = "Tên danh mục phải có ít nhất 6 ký tự.";
     } else {
-        editCategory(parseInt(index), name, emoji);
+        const isDuplicate = categories.some((cat, idx) =>
+            cat.name.toLowerCase() === name.toLowerCase() && idx != index
+        );
+        if (isDuplicate) {
+            errorMessage = "Tên danh mục đã tồn tại.";
+        }
     }
 
-    categoryModal.hide();
+    if (errorMessage) {
+        categoryError.style.display = "flex";
+        categoryErrorMsg.textContent = errorMessage;
+        saveButton.disabled = true;
+    } else {
+        categoryError.style.display = "none";
+        categoryErrorMsg.textContent = "";
+        saveButton.disabled = false;
+    }
+}
+
+categoryNameInput.addEventListener("input", validateCategoryName);
+
+function resetModalForm() {
+    document.querySelector("#editIndex").value = "";
+    categoryNameInput.value = "";
+    document.querySelector("#categoryEmoji").value = "";
+    categoryError.style.display = "none";
+    categoryErrorMsg.textContent = "";
+    saveButton.disabled = false;
+}
+
+// Mở modal thêm
+document.querySelector(".btn-primary.mb-3").addEventListener("click", () => {
+    document.querySelector("#categoryModalLabel").innerText = "Thêm danh mục";
+    resetModalForm();
+    categoryModal.show();
 });
 
 // Mở modal sửa
@@ -130,16 +158,35 @@ document.addEventListener("click", function (e) {
         const index = categories.findIndex(cat => cat.id === id);
 
         document.querySelector("#editIndex").value = index;
-        document.querySelector("#categoryName").value = categories[index].name;
+        categoryNameInput.value = categories[index].name;
         document.querySelector("#categoryEmoji").value = categories[index].emoji;
         document.querySelector("#categoryModalLabel").innerText = "Sửa danh mục";
+
+        validateCategoryName();
         categoryModal.show();
     }
 });
 
+// Xử lý submit
+
+document.querySelector("#categoryForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const name = categoryNameInput.value.trim();
+    const emoji = document.querySelector("#categoryEmoji").value.trim();
+    const index = document.querySelector("#editIndex").value;
+
+    if (index === "") {
+        addCategory(name, emoji);
+    } else {
+        editCategory(parseInt(index), name, emoji);
+    }
+
+    categoryModal.hide();
+});
+
+// Xử lý xoá
 let deleteIndex = null;
 
-// Mở modal xác nhận xoá
 document.addEventListener("click", function (e) {
     if (e.target.classList.contains("btn-delete")) {
         const row = e.target.closest("tr");

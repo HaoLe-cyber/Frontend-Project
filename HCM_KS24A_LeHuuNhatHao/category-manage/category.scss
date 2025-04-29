@@ -60,3 +60,17 @@ h4 {
     border-color: #0d6efd;
     color: white;
 }
+
+.error-message {
+    display: none;
+    align-items: center;
+    font-size: 13px;
+    color: #e74c3c;
+    margin-top: 6px;
+    margin-bottom: 10px;
+}
+
+.error-icon {
+    margin-right: 6px;
+    flex-shrink: 0;
+}

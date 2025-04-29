@@ -9,29 +9,121 @@
 </head>
 
 <body>
-    <div class="header">
-        Trang đăng ký
-    </div>
-    <div class="des-container">
-        <h1>Đăng ký</h1>
-        <p class="description">QuizForge – Nền tảng sáng tạo bài kiểm tra trực tuyến, giúp bạn dễ dàng thiết kế, chia sẻ
-            và thực hiện các bài kiểm tra một cách nhanh chóng và hiệu quả!</p>
-    </div>
-    <div class="container">
-        <form class="form-box" onsubmit="registerUser(event)">
+    <form class="form" onsubmit="registerUser(event)">
+        <div class="control">
+            <h1>Đăng ký</h1>
+        </div>
+
+        <div class="control block-cube block-input">
             <input type="text" id="register-username" placeholder="Họ và tên">
-            <span id="username-error" style="color: red;"></span>
+            <div class="bg-top">
+                <div class="bg-inner"></div>
+            </div>
+            <div class="bg-right">
+                <div class="bg-inner"></div>
+            </div>
+            <div class="bg">
+                <div class="bg-inner"></div>
+            </div>
+        </div>
+        <div class="error-message">
+            <svg class="error-icon" viewBox="0 0 24 24" width="16" height="16">
+                <path fill="#e74c3c"
+                    d="M12 0C5.371 0 0 5.371 0 12s5.371 12 12 12 12-5.371 12-12S18.629 0 12 0zm0 22C6.486 22 2 17.514 2 12S6.486 2 12 2s10 4.486 10 10-4.486 10-10 10zm-1-5h2v2h-2v-2zm0-10h2v8h-2V7z" />
+            </svg>
+            <span id="username-error"></span>
+        </div>
+
+        <div class="control block-cube block-input">
             <input type="email" id="register-email" placeholder="Email">
-            <span id="email-error" style="color: red;"></span>
+            <div class="bg-top">
+                <div class="bg-inner"></div>
+            </div>
+            <div class="bg-right">
+                <div class="bg-inner"></div>
+            </div>
+            <div class="bg">
+                <div class="bg-inner"></div>
+            </div>
+        </div>
+        <div class="error-message">
+            <svg class="error-icon" viewBox="0 0 24 24" width="16" height="16">
+                <path fill="#e74c3c"
+                    d="M12 0C5.371 0 0 5.371 0 12s5.371 12 12 12 12-5.371 12-12S18.629 0 12 0zm0 22C6.486 22 2 17.514 2 12S6.486 2 12 2s10 4.486 10 10-4.486 10-10 10zm-1-5h2v2h-2v-2zm0-10h2v8h-2V7z" />
+            </svg>
+            <span id="email-error"></span>
+        </div>
+
+        <div class="control block-cube block-input">
             <input type="password" id="register-password" placeholder="Mật khẩu">
-            <span id="password-error" style="color: red;"></span>
+            <div class="bg-top">
+                <div class="bg-inner"></div>
+            </div>
+            <div class="bg-right">
+                <div class="bg-inner"></div>
+            </div>
+            <div class="bg">
+                <div class="bg-inner"></div>
+            </div>
+        </div>
+        <div class="error-message">
+            <svg class="error-icon" viewBox="0 0 24 24" width="16" height="16">
+                <path fill="#e74c3c"
+                    d="M12 0C5.371 0 0 5.371 0 12s5.371 12 12 12 12-5.371 12-12S18.629 0 12 0zm0 22C6.486 22 2 17.514 2 12S6.486 2 12 2s10 4.486 10 10-4.486 10-10 10zm-1-5h2v2h-2v-2zm0-10h2v8h-2V7z" />
+            </svg>
+            <span id="password-error"></span>
+        </div>
+
+        <div class="control block-cube block-input">
             <input type="password" id="register-confirm-password" placeholder="Xác nhận mật khẩu">
-            <span id="confirm-password-error" style="color: red;"></span>
-            <button type="submit">Đăng ký</button>
-        </form>
-        <p class="redirect">Đã có tài khoản? <a href="../Login/login.html">Đăng nhập</a></p>
-    </div>
+            <div class="bg-top">
+                <div class="bg-inner"></div>
+            </div>
+            <div class="bg-right">
+                <div class="bg-inner"></div>
+            </div>
+            <div class="bg">
+                <div class="bg-inner"></div>
+            </div>
+        </div>
+        <div class="error-message">
+            <svg class="error-icon" viewBox="0 0 24 24" width="16" height="16">
+                <path fill="#e74c3c"
+                    d="M12 0C5.371 0 0 5.371 0 12s5.371 12 12 12 12-5.371 12-12S18.629 0 12 0zm0 22C6.486 22 2 17.514 2 12S6.486 2 12 2s10 4.486 10 10-4.486 10-10 10zm-1-5h2v2h-2v-2zm0-10h2v8h-2V7z" />
+            </svg>
+            <span id="confirm-password-error"></span>
+        </div>
+
+        <button class="btn block-cube block-cube-hover" type="submit">
+            <div class="bg-top">
+                <div class="bg-inner"></div>
+            </div>
+            <div class="bg-right">
+                <div class="bg-inner"></div>
+            </div>
+            <div class="bg">
+                <div class="bg-inner"></div>
+            </div>
+            <div class="text">Đăng ký</div>
+        </button>
+
+        <p class="redirect">Đã có tài khoản?</p>
+        <button type="button" class="btn block-cube block-cube-hover"
+            onclick="window.location.href='../Login/login.html'">
+            <div class="bg-top">
+                <div class="bg-inner"></div>
+            </div>
+            <div class="bg-right">
+                <div class="bg-inner"></div>
+            </div>
+            <div class="bg">
+                <div class="bg-inner"></div>
+            </div>
+            <div class="text">Đăng nhập</div>
+        </button>
+    </form>
+
+    <script src="signup.js"></script>
 </body>
-<script src="signup.js"></script>
 
 </html>

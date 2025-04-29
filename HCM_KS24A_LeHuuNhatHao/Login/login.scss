@@ -1,102 +1,180 @@
+/* Reset và biến nền */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+// https://img.freepik.com/premium-photo/national-trivia-day-january-4-holiday-concept-template-background-banner-card-poster-with-text-i_612827-101381.jpg?w=1060
+
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f3f6fb;
+    background: url('https://img.freepik.com/premium-vector/cute-background-vector_363897-4403.jpg?w=740') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
 }
 
-.header {
-    background-color: #000;
-    color: #fff;
-    padding: 12px 24px;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.des-container {
-    max-width: 400px;
-    margin: 40px auto;
-    padding-top: 30px;
-    text-align: center;
-}
-
-.container {
-    max-width: 400px;
-    margin: 40px auto;
-    background: white;
-    padding: 40px 30px;
-    border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    text-align: center;
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
 }
 
 h1 {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 12px;
+    font-size: 23px;
+    color: white;
 }
 
-.description {
-    font-size: 14px;
-    color: #555;
+/* Form tổng */
+.form {
+    width: 300px;
+    padding: 24px 35px 24px;
+    margin: 0 auto;
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    /* nền trắng mờ */
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* Safari hỗ trợ */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    z-index: 1;
+}
+
+.control {
     margin-bottom: 24px;
 }
 
-.form-box input {
+.control input {
     width: 100%;
-    padding: 12px 14px;
-    margin-bottom: 16px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    font-size: 15px;
-}
-
-.form-box input:focus {
-    outline: none;
-    border-color: #1a73e8;
-    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15);
-}
-
-button {
-    width: 100%;
-    padding: 14px;
-    background-color: #1a73e8;
-    color: white;
-    font-weight: bold;
+    padding: 14px 16px;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font-family: monospace, serif;
+    letter-spacing: 0.05em;
     font-size: 16px;
-    border: none;
-    border-radius: 10px;
+}
+
+.control input:hover,
+.control input:focus {
+    outline: none;
+    border: 0;
+}
+
+/* Nút */
+.btn {
+    width: 100%;
+    display: block;
+    padding: 14px 16px;
+    background: transparent;
+    outline: none;
+    border: 0;
+    color: #fff;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #1669d4;
+/* Block Cube */
+.block-cube {
+    position: relative;
 }
 
+.block-cube .bg-top,
+.block-cube .bg-right,
+.block-cube .bg {
+    background: linear-gradient(90deg,
+            rgba(2, 0, 36, 1) 0%,
+            rgba(52, 9, 121, 1) 37%,
+            rgba(0, 212, 255, 1) 94%);
+}
+
+.block-cube .bg-top {
+    position: absolute;
+    height: 10px;
+    bottom: 100%;
+    left: 5px;
+    right: -5px;
+    transform: skew(-45deg, 0);
+}
+
+.block-cube .bg-right {
+    position: absolute;
+    width: 10px;
+    top: -5px;
+    bottom: 5px;
+    left: 100%;
+    transform: skew(0, -45deg);
+    background: rgba(0, 212, 255, 1);
+}
+
+.block-cube .bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.block-cube .bg-inner {
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    right: 2px;
+    bottom: 2px;
+    background: #212121;
+    transition: all 0.2s ease-in-out;
+}
+
+.block-cube .text {
+    position: relative;
+    z-index: 2;
+}
+
+.block-cube.block-input input {
+    position: relative;
+    z-index: 2;
+}
+
+/* Hover effect */
+.block-cube.block-cube-hover:hover .bg-inner,
+.block-cube.block-cube-hover:focus .bg-inner {
+    top: 100%;
+}
+
+/* Link redirect */
 .redirect {
     margin-top: 16px;
     font-size: 14px;
+    text-align: center;
 }
 
 .redirect a {
-    color: #1a73e8;
+    color: rgba(0, 212, 255, 1);
     text-decoration: none;
     font-weight: 500;
 }
 
-label {
-    text-align: left;
-    font-size: 14px;
-    font-weight: 700;
-    color: #555;
-    margin-bottom: 8px;
-    display: block;
+.error-message {
+    display: none;
+    align-items: center;
+    font-size: 13px;
+    color: #e74c3c;
+    margin-top: 6px;
+    margin-bottom: 10px;
 }
 
-span.error-message {
-    display: block;
-    margin-top: 3px;
-    font-size: 12px;
-    color: #e74c3c;
+.error-icon {
+    margin-right: 6px;
+    flex-shrink: 0;
+}
+
+.redirect {
+    color: white;
 }
