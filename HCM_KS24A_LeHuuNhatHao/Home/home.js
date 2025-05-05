@@ -79,7 +79,7 @@ function renderData() {
                         <div class="text-muted">${data[i].plays} lượt chơi</div>
                     </div>
                     <div class="align-self-center">
-                        <button class="quiz-btn" data-id="${i}">Chơi</button>
+                        <button class="quiz-btn" onclick="startQuiz(${data[i].id})">Chơi</button>
                     </div>
                 </div>
             </div>
@@ -105,14 +105,24 @@ document.querySelectorAll("button[data-sort]").forEach(btn => {
     });
 });
 
-// Bắt sự kiện nút "Chơi"
-document.addEventListener("click", function (e) {
-    if (e.target.classList.contains("quiz-btn")) {
-        const name = e.target.closest(".quiz-card").querySelector(".text-muted").textContent;
-        alert(`Bắt đầu quiz: ${name}`);
-        // window.location.href = `../PlayQuiz/quiz.html?quizName=${encodeURIComponent(name)}`;
+// Chuyển hướng đến trang chơi quiz được chọn
+function startQuiz(testId) {
+    window.location.href = `../test-practice/test_practice.html?testId=${testId}`;
+}
+
+// Bắt sự kiện nút "Chơi ngẫu nhiên"
+document.getElementById("randomPlayBtn").addEventListener("click", () => {
+    if (!tests || tests.length === 0) {
+        alert("Không có bài test nào để chơi.");
+        return;
     }
+
+    const randomIndex = Math.floor(Math.random() * tests.length);
+    const selectedTest = tests[randomIndex];
+
+    window.location.href = `../test-practice/test_practice.html?testId=${selectedTest.id}`;
 });
+
 
 // Đăng xuất
 function logOutUser() {

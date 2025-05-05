@@ -1,4 +1,11 @@
+// Đọc id bài test được truyền từ trang quản lý bài test
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+const testId = getQueryParam("id");
 
+// Kiểm tra và cập nhật dữ liệu lúc đầu
 let tests = [];
 let currentEditingQuestionId = null;
 
@@ -13,6 +20,7 @@ function updateData() {
     localStorage.setItem("tests", JSON.stringify(tests));
 }
 
+// Hàm load danh mục từ localStorage
 function loadCategories() {
     const categorySelect = document.getElementById('category');
     const savedCategories = JSON.parse(localStorage.getItem('categories')) || [];
@@ -27,18 +35,21 @@ function loadCategories() {
     });
 }
 
-function renderQuestions() {
+// Hàm render danh sách câu hỏi
+function renderQuestions(questions = null) {
     const tbody = document.querySelector(".question-section tbody");
     tbody.innerHTML = "";
 
-    if (tests.length === 0) return;
+    const currentTest = testId
+        ? tests.find(t => t.id === parseInt(testId))
+        : tests[tests.length - 1];
 
-    const questions = tests[tests.length - 1].questions || [];
+    const questionList = questions || currentTest?.questions || [];
 
-    questions.forEach((question, index) => {
+    questionList.forEach((question, index) => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
-            <td>${index + 1}</td>
+            <td>${question.id}</td>
             <td>${question.content}</td>
             <td>
                 <button class="btn btn-edit btn-sm" data-id="${question.id}">Sửa</button>
@@ -48,30 +59,18 @@ function renderQuestions() {
         tbody.appendChild(tr);
     });
 
-    const editButtons = tbody.querySelectorAll('.btn-edit');
-    editButtons.forEach(button => {
+    tbody.querySelectorAll('.btn-edit').forEach(button => {
         button.addEventListener('click', function () {
             const questionId = parseInt(this.getAttribute('data-id'));
             openEditQuestionModal(questionId);
         });
     });
-
-    // const deleteButtons = tbody.querySelectorAll('.btn-delete');
-    // deleteButtons.forEach(button => {
-    //     button.addEventListener('click', function () {
-    //         const index = parseInt(this.getAttribute('data-index'));
-    //         if (confirm("Bạn có chắc muốn xóa câu hỏi này?")) {
-    //             tests[tests.length - 1].questions.splice(index, 1);
-    //             updateData();
-    //             renderQuestions();
-    //         }
-    //     });
-    // });
 }
 
+
+// Xử lý sự kiện lưu bài test
 document.addEventListener("DOMContentLoaded", function () {
     loadCategories();
-    renderQuestions();
 
     document.querySelector("#saveTestBtn").addEventListener("click", function () {
         const name = document.querySelector("#testName").value.trim();
@@ -215,7 +214,9 @@ function addTest(name, category, time) {
 }
 
 function openEditQuestionModal(questionId) {
-    const currentTest = tests.length > 0 ? tests[tests.length - 1] : null;
+    const currentTest = testId
+        ? tests.find(t => t.id === parseInt(testId))
+        : tests[tests.length - 1]; // Lấy đúng bài test theo id
 
     if (!currentTest || !currentTest.questions || currentTest.questions.length === 0) {
         alert('Không tìm thấy bài test hoặc không có câu hỏi!');
@@ -294,3 +295,17 @@ document.querySelector("#confirmDeleteBtn").addEventListener("click", () => {
         deleteIndex = null;
     }
 });
+
+// Load bài test theo id được truyền từ trang quản lý bài test
+if (testId) {
+    const editingTest = tests.find(t => t.id === parseInt(testId));
+    if (editingTest) {
+        // Gán dữ liệu test vào form
+        document.getElementById("testName").value = editingTest.name;
+        document.getElementById("category").value = editingTest.category;
+        document.getElementById("time").value = editingTest.time;
+
+        // Render câu hỏi từ test đang chỉnh sửa
+        renderQuestions(editingTest.questions);
+    }
+}

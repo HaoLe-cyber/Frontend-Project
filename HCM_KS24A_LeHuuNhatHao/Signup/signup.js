@@ -89,6 +89,7 @@ function registerUser(e) {
     const email = document.querySelector("#register-email").value.trim();
     const password = document.querySelector("#register-password").value.trim();
     const confirmPassword = document.querySelector("#register-confirm-password").value.trim();
+    const adminRole = false;
 
     // Check tất cả các trường
     if (!username || !email || !password || !confirmPassword) {
@@ -120,7 +121,7 @@ function registerUser(e) {
         return;
     }
 
-    users.push({ username, email, password });
+    users.push({ username, email, password, adminRole });
     localStorage.setItem("users", JSON.stringify(users));
     alert("Đăng ký thành công! Quay lại đăng nhập.");
     window.location.href = "../Login/login.html";

@@ -168,7 +168,6 @@ document.addEventListener("click", function (e) {
 });
 
 // Xử lý submit
-
 document.querySelector("#categoryForm").addEventListener("submit", function (e) {
     e.preventDefault();
     const name = categoryNameInput.value.trim();
@@ -186,7 +185,6 @@ document.querySelector("#categoryForm").addEventListener("submit", function (e) 
 
 // Xử lý xoá
 let deleteIndex = null;
-
 document.addEventListener("click", function (e) {
     if (e.target.classList.contains("btn-delete")) {
         const row = e.target.closest("tr");
