@@ -8,9 +8,9 @@ function initDefaultTests() {
                 time: 25,
                 plays: 0,
                 questions: [
-                    { id: 1746411600001, content: "5 - 2 = ?", answers: [{ text: "3", isCorrect: true }, { text: "2", isCorrect: false }, { text: "4", isCorrect: false }] },
-                    { id: 1746411600002, content: "3 x 3 = ?", answers: [{ text: "9", isCorrect: true }, { text: "6", isCorrect: false }, { text: "8", isCorrect: false }] },
-                    { id: 1746411600003, content: "10 ÷ 2 = ?", answers: [{ text: "5", isCorrect: true }, { text: "2", isCorrect: false }, { text: "4", isCorrect: false }] }
+                    { id: 1746411600011, content: "5 - 2 = ?", answers: [{ text: "3", isCorrect: true }, { text: "2", isCorrect: false }, { text: "4", isCorrect: false }] },
+                    { id: 1746411600012, content: "3 x 3 = ?", answers: [{ text: "9", isCorrect: true }, { text: "6", isCorrect: false }, { text: "8", isCorrect: false }] },
+                    { id: 1746411600013, content: "10 ÷ 2 = ?", answers: [{ text: "5", isCorrect: true }, { text: "2", isCorrect: false }, { text: "4", isCorrect: false }] }
                 ]
             },
             {
@@ -39,54 +39,30 @@ function initDefaultTests() {
             },
             {
                 id: 4,
-                name: "Lịch sử 2",
-                category: "Lịch sử",
-                time: 15,
-                plays: 0,
-                questions: [
-                    { id: 1746411600007, content: "Bác Hồ đọc Tuyên ngôn Độc lập vào năm nào?", answers: [{ text: "1945", isCorrect: true }, { text: "1954", isCorrect: false }, { text: "1930", isCorrect: false }] },
-                    { id: 1746411600008, content: "Chiến tranh thế giới thứ hai kết thúc năm nào?", answers: [{ text: "1945", isCorrect: true }, { text: "1939", isCorrect: false }, { text: "1950", isCorrect: false }] },
-                    { id: 1746411600009, content: "Ngày Quốc khánh Việt Nam là ngày nào?", answers: [{ text: "2/9", isCorrect: true }, { text: "30/4", isCorrect: false }, { text: "1/5", isCorrect: false }] }
-                ]
-            },
-            {
-                id: 5,
                 name: "Lịch sử 3",
                 category: "Lịch sử",
                 time: 15,
                 plays: 0,
                 questions: [
-                    { id: 1746411600007, content: "Bác Hồ đọc Tuyên ngôn Độc lập vào năm nào?", answers: [{ text: "1945", isCorrect: true }, { text: "1954", isCorrect: false }, { text: "1930", isCorrect: false }] },
-                    { id: 1746411600008, content: "Chiến tranh thế giới thứ hai kết thúc năm nào?", answers: [{ text: "1945", isCorrect: true }, { text: "1939", isCorrect: false }, { text: "1950", isCorrect: false }] },
-                    { id: 1746411600009, content: "Ngày Quốc khánh Việt Nam là ngày nào?", answers: [{ text: "2/9", isCorrect: true }, { text: "30/4", isCorrect: false }, { text: "1/5", isCorrect: false }] }
+                    { id: 1746411600017, content: "Bác Hồ đọc Tuyên ngôn Độc lập vào năm nào?", answers: [{ text: "1945", isCorrect: true }, { text: "1954", isCorrect: false }, { text: "1930", isCorrect: false }] },
+                    { id: 1746411600028, content: "Chiến tranh thế giới thứ hai kết thúc năm nào?", answers: [{ text: "1945", isCorrect: true }, { text: "1939", isCorrect: false }, { text: "1950", isCorrect: false }] },
+                    { id: 1746411600039, content: "Ngày Quốc khánh Việt Nam là ngày nào?", answers: [{ text: "2/9", isCorrect: true }, { text: "30/4", isCorrect: false }, { text: "1/5", isCorrect: false }] }
                 ]
             },
             {
-                id: 6,
+                id: 5,
                 name: "Lịch sử 4",
                 category: "Lịch sử",
                 time: 15,
                 plays: 0,
                 questions: [
-                    { id: 1746411600007, content: "Bác Hồ đọc Tuyên ngôn Độc lập vào năm nào?", answers: [{ text: "1945", isCorrect: true }, { text: "1954", isCorrect: false }, { text: "1930", isCorrect: false }] },
-                    { id: 1746411600008, content: "Chiến tranh thế giới thứ hai kết thúc năm nào?", answers: [{ text: "1945", isCorrect: true }, { text: "1939", isCorrect: false }, { text: "1950", isCorrect: false }] },
-                    { id: 1746411600009, content: "Ngày Quốc khánh Việt Nam là ngày nào?", answers: [{ text: "2/9", isCorrect: true }, { text: "30/4", isCorrect: false }, { text: "1/5", isCorrect: false }] }
+                    { id: 1746411600027, content: "Bác Hồ đọc Tuyên ngôn Độc lập vào năm nào?", answers: [{ text: "1945", isCorrect: true }, { text: "1954", isCorrect: false }, { text: "1930", isCorrect: false }] },
+                    { id: 1746411600048, content: "Chiến tranh thế giới thứ hai kết thúc năm nào?", answers: [{ text: "1945", isCorrect: true }, { text: "1939", isCorrect: false }, { text: "1950", isCorrect: false }] },
+                    { id: 1746411600069, content: "Ngày Quốc khánh Việt Nam là ngày nào?", answers: [{ text: "2/9", isCorrect: true }, { text: "30/4", isCorrect: false }, { text: "1/5", isCorrect: false }] }
                 ]
             },
             {
-                id: 7,
-                name: "Lịch sử 5",
-                category: "Lịch sử",
-                time: 15,
-                plays: 0,
-                questions: [
-                    { id: 1746411600007, content: "Bác Hồ đọc Tuyên ngôn Độc lập vào năm nào?", answers: [{ text: "1945", isCorrect: true }, { text: "1954", isCorrect: false }, { text: "1930", isCorrect: false }] },
-                    { id: 1746411600008, content: "Chiến tranh thế giới thứ hai kết thúc năm nào?", answers: [{ text: "1945", isCorrect: true }, { text: "1939", isCorrect: false }, { text: "1950", isCorrect: false }] },
-                    { id: 1746411600009, content: "Ngày Quốc khánh Việt Nam là ngày nào?", answers: [{ text: "2/9", isCorrect: true }, { text: "30/4", isCorrect: false }, { text: "1/5", isCorrect: false }] }
-                ]
-            },
-            {
-                id: 8,
+                id: 6,
                 name: "Toán 2",
                 category: "Toán học",
                 time: 25,
@@ -97,30 +73,6 @@ function initDefaultTests() {
                     { id: 1746411600003, content: "10 ÷ 2 = ?", answers: [{ text: "5", isCorrect: true }, { text: "2", isCorrect: false }, { text: "4", isCorrect: false }] }
                 ]
             },
-            {
-                id: 9,
-                name: "Vật lý 2",
-                category: "Vật lý",
-                time: 30,
-                plays: 0,
-                questions: [
-                    { id: 1746411600004, content: "Vận tốc là gì?", answers: [{ text: "Quãng đường / thời gian", isCorrect: true }, { text: "Khối lượng / thể tích", isCorrect: false }, { text: "Lực / khối lượng", isCorrect: false }] },
-                    { id: 1746411600005, content: "Đơn vị của lực là gì?", answers: [{ text: "N", isCorrect: true }, { text: "kg", isCorrect: false }, { text: "m/s", isCorrect: false }] },
-                    { id: 1746411600006, content: "1 N bằng bao nhiêu?", answers: [{ text: "1 kg·m/s²", isCorrect: true }, { text: "1 m/s²", isCorrect: false }, { text: "1 kg·m²/s", isCorrect: false }] }
-                ]
-            },
-            {
-                id: 10,
-                name: "Lịch sử 6",
-                category: "Lịch sử",
-                time: 15,
-                plays: 0,
-                questions: [
-                    { id: 1746411600007, content: "Bác Hồ đọc Tuyên ngôn Độc lập vào năm nào?", answers: [{ text: "1945", isCorrect: true }, { text: "1954", isCorrect: false }, { text: "1930", isCorrect: false }] },
-                    { id: 1746411600008, content: "Chiến tranh thế giới thứ hai kết thúc năm nào?", answers: [{ text: "1945", isCorrect: true }, { text: "1939", isCorrect: false }, { text: "1950", isCorrect: false }] },
-                    { id: 1746411600009, content: "Ngày Quốc khánh Việt Nam là ngày nào?", answers: [{ text: "2/9", isCorrect: true }, { text: "30/4", isCorrect: false }, { text: "1/5", isCorrect: false }] }
-                ]
-            }
         ];
         localStorage.setItem("tests", JSON.stringify(defaultTests));
     }
@@ -129,10 +81,12 @@ initDefaultTests();
 
 let currentSearchTerm = "";
 let currentSortOption = "";
+let tests = [];
 
 // LocalStorage init
 if (!localStorage.getItem("tests")) {
     localStorage.setItem("tests", JSON.stringify(tests));
+    tests = defaultTests;
 } else {
     tests = JSON.parse(localStorage.getItem("tests"));
 }
@@ -149,7 +103,9 @@ function addTest(name) {
         name: name,
         category: "Chưa phân loại", // hoặc gán giá trị hợp lý khác
         length: 0,
-        time: "00:00"
+        time: "00:00",
+        questions: [],
+        plays: 0
     };
     tests.push(test);
     updateData();
@@ -159,6 +115,8 @@ function addTest(name) {
 function deleteTest(index) {
     tests.splice(index, 1);
     updateData();
+    const countPage = Math.ceil(tests.length / maxItem);
+    curPage = Math.min(curPage, countPage || 1); // cập nhật lại trang hiện tại
     renderData();
 }
 
@@ -168,27 +126,58 @@ const urlParams = new URLSearchParams(window.location.search);
 const targetPage = parseInt(urlParams.get('page')) || 1;
 
 const maxItem = 5;
-const countPage = Math.ceil(tests.length / maxItem);
 let curPage = targetPage;
 
 let paginBoxEL = document.querySelector(".pagin_box");
 
 function renderPagin() {
     let paginHTML = ``;
+    const filteredTests = tests.filter(test =>
+        test.name.toLowerCase().includes(currentSearchTerm.toLowerCase())
+    );
+    const countPage = Math.ceil(filteredTests.length / maxItem) || 1;
+
+    if (curPage > countPage) curPage = countPage;
 
     for (let i = 1; i <= countPage; i++) {
         paginHTML += `<li class="page-item ${i === curPage ? 'active' : ''}">
-            <a class="page-link" href="?page=${i}">${i}</a></li>`;
+            <a class="page-link pagin-link" data-page="${i}" href="#">${i}</a>
+        </li>`;
     }
 
     paginBoxEL.innerHTML = `
         <li class="page-item ${curPage === 1 ? 'disabled' : ''}">
-            <a class="page-link" href="?page=${Math.max(1, curPage - 1)}">‹</a></li>
+            <a class="page-link pagin-link" data-page="${Math.max(1, curPage - 1)}" href="#">‹</a>
+        </li>
         ${paginHTML}
         <li class="page-item ${curPage === countPage ? 'disabled' : ''}">
-            <a class="page-link" href="?page=${Math.min(countPage, curPage + 1)}">›</a></li>
+            <a class="page-link pagin-link" data-page="${Math.min(countPage, curPage + 1)}" href="#">›</a>
+        </li>
     `;
+
+    // GẮN LẠI SỰ KIỆN SAU KHI RENDER
+    let pageLinks = document.querySelectorAll(".pagin_box .page-link");
+    pageLinks.forEach(function (link) {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const newPage = parseInt(this.getAttribute("data-page"));
+            if (!isNaN(newPage)) {
+                curPage = newPage;
+                updateURL(); // Cập nhật URL với trang hiện tại
+                renderData();
+                renderPagin();
+            }
+        });
+    });
 }
+
+// Cập nhật URL nhưng không reload trang
+function updateURL() {
+    const newUrl = new URL(window.location.href);
+    newUrl.searchParams.set("page", curPage);
+    history.replaceState(null, "", newUrl);
+}
+
 
 // Hàm render danh sách bài test có kết hợp tìm kiếm và sắp xếp
 function renderData() {
@@ -199,7 +188,7 @@ function renderData() {
     if (currentSortOption === "name") {
         filteredTests.sort((a, b) => a.name.localeCompare(b.name));
     } else if (currentSortOption === "time") {
-        filteredTests.sort((a, b) => a.time.localeCompare(b.time));
+        filteredTests.sort((a, b) => a.time - b.time);
     }
 
     const countPage = Math.ceil(filteredTests.length / maxItem);
@@ -218,7 +207,7 @@ function renderData() {
             <td>${data[i].time} phút</td>
             <td>
                 <button class="btn-edit" data-id="${data[i].id}">Sửa</button>
-                <button class="btn-delete" onclick="deleteTest(${tests.findIndex(t => t.id === data[i].id)})">Xoá</button>
+                <button class="btn-delete" data-id="${data[i].id}">Xoá</button>
             </td>
         </tr>`;
     }
@@ -256,9 +245,6 @@ document.querySelector("#testForm").addEventListener("submit", function (e) {
     if (index === "") {
         addTest(name);
     }
-    // } else {
-    //     editTest(parseInt(index), name);
-    // }
 
     testModal.hide();
     renderData();
